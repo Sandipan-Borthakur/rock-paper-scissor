@@ -1,1 +1,1 @@
-# rock-paper-scissor
+This is a simple Rock Paper Scissor game built using Javascript. To play the game, enter - rock, paper or scissor in the prompt and open the console to see the result. If there is an invalid input, the console will ask you to try again. The game finishes after 5 valid inputs and declare the score. 
