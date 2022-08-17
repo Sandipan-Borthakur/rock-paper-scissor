@@ -60,19 +60,37 @@ function myfunc() {
             winnerContent.textContent = `This game is a tie`;
         }
         result.appendChild(winnerContent);
+        replayButton.textContent = "Replay";
+        result.appendChild(replayButton);
     }
     count += 1;
 }
 
+function replayGame(){
+    count = 1;
+    winnerCount = 0;
+    result.textContent = '';
+    replayButton.removeEventListener('click',replayGame);
 
-const result = document.querySelector('#result');
-const buttons = document.querySelectorAll('button');
+    buttons.forEach((button) => {
+        button.addEventListener('click', playRound);
+        button.addEventListener('click', myfunc);
+    });
+    
+    replayButton.addEventListener('click',replayGame);
+
+}
+
 var count = 1;
 var winnerCount = 0;
+const result = document.querySelector('#result');
+const buttons = document.querySelectorAll('button');
 const winnerContent = document.createElement('div');
-
+const replayButton = document.createElement('button');
 
 buttons.forEach((button) => {
     button.addEventListener('click', playRound);
     button.addEventListener('click', myfunc);
 });
+
+replayButton.addEventListener('click',replayGame);
